@@ -1,0 +1,7 @@
+1393. Capital Gain/Loss
+---------------------------------
+
+SELECT stock_name, 
+(sum(case when operation ="Sell" THEN price else 0 end )- sum(case when operation ="Buy" then price else 0 end)) as capital_gain_loss
+FROM stocks 
+GROUP BY stock_name
