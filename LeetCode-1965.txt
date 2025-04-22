@@ -1,0 +1,14 @@
+1965. Employees With Missing Information
+--------------------------------------------
+select * from (SELECT e.employee_id
+FROM Employees e 
+left join Salaries s 
+on e.employee_id = s.employee_id
+where s.salary is null
+union
+select s.employee_id 
+from salaries s
+left join employees e
+on  s.employee_id = e.employee_id
+where e.name is null) temp
+ order by employee_id 
