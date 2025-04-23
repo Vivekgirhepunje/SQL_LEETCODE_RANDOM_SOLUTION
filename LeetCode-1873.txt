@@ -1,0 +1,11 @@
+1873. Calculate Special Bonus
+----------------------------------
+
+SELECT employee_id,salary as bonus
+FROM Employees 
+WHERE LEFT(name,1)!='M' and employee_id%2!=0 
+union
+SELECT employee_id,0 as bonus
+FROM Employees 
+WHERE employee_id%2=0 or left(name,1)='M'
+order by employee_id
