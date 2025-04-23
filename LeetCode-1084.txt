@@ -1,0 +1,8 @@
+1084. Sales Analysis III
+--------------------------------
+
+SELECT p.product_id,p.product_name
+FROM Product p
+JOIN Sales s ON p.product_id = s.product_id
+group by product_id
+having sum(s.sale_date between '2019-01-01' and '2019-03-31')=count(*)
