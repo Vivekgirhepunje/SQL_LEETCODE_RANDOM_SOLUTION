@@ -1,0 +1,9 @@
+607. Sales Person
+-----------------------
+
+SELECT s.name
+FROM SalesPerson s
+Left JOIN Orders o  ON s.sales_id=o.sales_id
+Left JOIN Company c ON c.com_id=o.com_id
+GROUP BY s.sales_id
+HAVING sum(ifnull(c.name,"x")="RED")=0;
